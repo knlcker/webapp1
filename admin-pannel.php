@@ -31,6 +31,19 @@
 
             $resultSet = $connectie->query("SELECT * FROM Menu");
             ?>
+            <form action="/form.php" class="login-page">
+                <div class="panel"> Admin login
+                    <div class="username">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="password">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                        <input type="submit" value="submit">
+                </div>
+            </form>
         </div>
     </main>
     <footer>
