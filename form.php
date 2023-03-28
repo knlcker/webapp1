@@ -21,15 +21,18 @@
         $category = $_POST['category'];
 
         $statement = $dbh->prepare("INSERT INTO menu(title, discription, price, category) VALUES (?, ?, ?, ?)");
-        $statement->execute($title, $discription, $price, $category);
+        $statement->execute([$title, $discription, $price, $category]);
     } 
 
     ?>
+    <div class="add-menu">
     <form method="post" action="form.php">
-        Title: <input type="text" name="title">
-        Prijs: <input type="number" name="price">
-        omschrijving: <input type="text" name="omschrijving">
-        <button type="submit" name="submit-button">toevoegen</button>
+        Title: <input type="text" name="title" >
+        Prijs: <input type="number" name="price" >
+        omschrijving: <input type="text" name="discription" >
+        category: <input type="text" name="category" >
+        <button type="submit" name="submit-button" >toevoegen</button>
     </form>
+    </div>
 </body>
 </html>
