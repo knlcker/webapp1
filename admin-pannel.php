@@ -12,7 +12,7 @@
     <header>
         <nav>
         <a href="/index.php"><i class="fa-solid fa-arrow-down-short-wide icon"></i></a>
-            <h1>Restaurant</h1>
+        <h1> <a href="index.php">Restaurant</a></h1>
             <a href="/admin-pannel.php"><i class="fa-regular fa-user icon"></i></a> 
         </nav>
     </header>
@@ -35,13 +35,13 @@
                 <div class="panel"> Admin login
                     <div class="username">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username">
+                        <input type="text" id="username" name="username" placeholder="username..">
                     </div>
                     <div class="password">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password">
+                        <input type="password" id="password" name="password" placeholder="password..">
                     </div>
-                        <input type="submit" value="submit">
+                        <input type="submit" value="Log-in" class="submit">
                 </div>
             </form>
         </div>

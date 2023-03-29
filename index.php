@@ -21,7 +21,7 @@
                     <a href="#pasta">Pasta</a>
                 </div>
             </div>
-            <h1>Restaurant</h1>
+            <h1> <a href="index.php">Restaurant</a></h1>
             <a href="/admin-pannel.php"><i class="fa-regular fa-user icon"></i></a>
         </nav>
     </header>
