@@ -13,12 +13,28 @@
         <nav>
         <a href="/index.php"><i class="fa-solid fa-arrow-down-short-wide icon"></i></a>
         <h1> <a href="index.php">Restaurant</a></h1>
-            <a href="/admin-pannel.php"><i class="fa-regular fa-user icon"></i></a> 
+            <a href="/admin-pannel.php"><i class="fa-regular fa-user icon"></i></a> 3
         </nav>
     </header>
     <main>
         <div class="menu-items-container">
-            <?php
+
+            <form action="/admin-pannel.php" method="post" class="login-page">
+                <div class="panel"> Admin login
+                    <div class="username">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="username..">
+                    </div>
+                    <div class="password">
+                        <label for="password">password:</label>
+                        <input type="password" id="password" name="password" placeholder="password..">
+                    </div>
+                    <button type="submit" name="login-button" class="login-button">login</button>
+                </div>
+            </form>
+        </div>
+
+        <?php
             $dns = 'mysql:dbname=webrestaurant;host=127.0.0.1';
             $user = 'root';
             $password = '';
@@ -28,23 +44,8 @@
             }catch (PDOException $e){
                 echo "verbinding werkt niet" . $e;
             }
-
-            $resultSet = $connectie->query("SELECT * FROM Menu");
-            ?>
-            <form action="/form.php" class="login-page">
-                <div class="panel"> Admin login
-                    <div class="username">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" placeholder="username..">
-                    </div>
-                    <div class="password">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" placeholder="password..">
-                    </div>
-                        <input type="submit" value="Log-in" class="submit">
-                </div>
-            </form>
-        </div>
+            echo "hoi";
+        ?>
     </main>
     <footer>
 

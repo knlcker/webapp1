@@ -31,6 +31,7 @@
 
         $statement = $dbh->prepare("INSERT INTO menu(title, discription, price, category) VALUES (?, ?, ?, ?)");
         $statement->execute([$title, $discription, $price, $category]);
+
     } 
 
     ?>
@@ -43,7 +44,7 @@
                 </div>
                 <div class="label">
                     <label for="price">Prijs:</label>
-                    <input type="number" name="price" class="textfield">
+                    <input type="number" step="0.01" name="price" class="textfield">
                 </div>
                 <div class="label">
                     <label for="discription">Omschrijving:</label>

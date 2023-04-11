@@ -26,6 +26,9 @@
         </nav>
     </header>
     <main>
+        <form action="index.php" method="GET" class="search-bar-container">
+            <input type="text" name="search" class="search-bar" placeholder="search..">
+        </form>
         <div class="menu-items-container">
             <?php
             $dns = 'mysql:dbname=webrestaurant;host=127.0.0.1';
@@ -37,19 +40,25 @@
             }catch (PDOException $e){
                 echo "verbinding werkt niet" . $e;
             }
-
-            $resultSet = $connectie->query("SELECT * FROM Menu");
-
+            if(isset($_GET['search'])){
+                $search_input = $_GET['search'];
+                $resultSet = $connectie->prepare("SELECT * FROM Menu WHERE concat(Item_title, Item_description, Item_category) LIKE ?");
+                $resultSet->execute(["%" . $search_input . "%"]);
+            } else{
+                $resultSet = $connectie->prepare("SELECT * FROM Menu");
+                $resultSet->execute([]);
+            }
             while ($item = $resultSet->fetch()) {
-                echo '<div class="menu-container">
+                echo '
+                        <div class="menu-container">
                         <div class="Menu-item">
                         <div class="item-container">
-                        <h2 class="Item-title">' . $item['Title'] .'</h2>
-                        <p class="Item-disc">' . $item['Discription'] .'</p>
+                        <h2 class="Item-title">' . $item['Item_title'] .'</h2>
+                        <p class="Item-desc">' . $item['Item_description'] .'</p>
                         </div>
                         <div class="price-container">
                         <div class="dash-line">
-                        <div class="Price">€' . $item['Price'] .'</div>
+                        <div class="Price">€' . $item['Item_price'] .'</div>
                         </div>
                         </div>
                         </div>

@@ -11,7 +11,7 @@ body{
 }
 header{
     width: 100%;
-    height: 200px;
+    height: 150px;
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -35,6 +35,24 @@ nav{
 
     font-size: 24pt;
 }
+.search-bar-container{
+    width: 100%;
+    height: 10%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar{
+    width: 20%;
+    height: 50%;
+    border-radius: 25px;
+    border-style: solid;
+    font-size: 16pt;
+
+    padding: 10px;
+}
+
 .filter{
     background-color: #81ca38;
     border: none;
@@ -170,6 +188,10 @@ a{
     width: 50%;
     height: 10%;
 }
+.login-button{
+    width: 30%;
+    height: 10%;
+}
 
 
 /* add */ 
@@ -231,3 +253,22 @@ button{
     height: 100%;
     font-size: 20pt;
 }
+
+
+body{   
+    background: #eee;  
+}  
+#frm{  
+    border: solid gray 1px;  
+    width:25%;  
+    border-radius: 2px;  
+    margin: 120px auto;  
+    background: white;  
+    padding: 50px;  
+}  
+#btn{  
+    color: #fff;  
+    background: #337ab7;  
+    padding: 7px;  
+    margin-left: 70%;  
+}  
