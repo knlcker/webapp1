@@ -12,29 +12,13 @@
     <header>
         <nav>
         <a href="/index.php"><i class="fa-solid fa-arrow-down-short-wide icon"></i></a>
-        <h1> <a href="index.php">ADMIN LOGIN</a></h1>
+        <h1> <a href="index.php">DELETED</a></h1>
             <a href="/admin-pannel.php"><i class="fa-regular fa-user icon"></i></a>
         </nav>
     </header>
     <main>
-        <div class="menu-items-container">
-
-            <form action="/remove-change.php" method="post" class="login-page">
-                <div class="panel"> Admin login
-                    <div class="username">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" placeholder="username..">
-                    </div>
-                    <div class="password">
-                        <label for="password">password:</label>
-                        <input type="password" id="password" name="password" placeholder="password..">
-                    </div>
-                    <button type="submit" name="login-button" class="login-button">login</button>
-                </div>
-            </form>
-        </div>
-
-        <?php
+        <div class="menu-items-container menu-items-container2">
+            <?php
             $dns = 'mysql:dbname=webrestaurant;host=127.0.0.1';
             $user = 'root';
             $password = '';
@@ -44,10 +28,15 @@
             }catch (PDOException $e){
                 echo "verbinding werkt niet" . $e;
             }
-        ?>
-    </main>
-    <footer>
+            
 
-    </footer>
-</body>
-</html>
+            if(isset($_POST['delete_id'])){
+                $id_to_delete = $_POST['delete_id'];
+                $statement = $connectie->prepare("DELETE FROM menu WHERE Item_id = ?");
+                $statement->execute([$id_to_delete]);
+                
+            }
+            ?>
+            <h1 class="return">Item verwijderd</h1>
+            <a href="remove-change.php" class="return"><-terug</a>
+            </main>
