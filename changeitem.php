@@ -16,6 +16,7 @@
             <a href="/admin-pannel.php"><i class="fa-regular fa-user icon"></i></a> 
         </nav>
     </header>
+    <main>
     <?php
         $dns = 'mysql:dbname=webrestaurant;host=127.0.0.1';
         $user = 'root';
@@ -31,11 +32,18 @@
         $Item_price = $_POST['price'];
         $Item_description = $_POST['discription'];
         $Item_category = $_POST['category'];
-        $Item_id = $_GET['Id_to_change'];
+        $Item_id = $_GET['Id_to_change']; 
 
-        echo $Item_id;
+        if(isset($_POST['submit-button'])){
+            $statement = $connectie->prepare("UPDATE menu SET Item_title = ?, Item_description = ?, Item_price = ?, Item_category = ? WHERE Item_id = ?");
+            $statement->execute([$Item_title, $Item_description, $Item_price, $Item_category, $Item_id]);
+        }
 
-        $statement = $connectie->prepare("UPDATE menu SET(Item_title, Item_price, Item_description, Item_category) VALUES (?, ?, ?, ?) WHERE Item_id = ?");
-        $statement->execute([$Item_title, $Item_price, $Item_description, $Item_category, $Item_id]);
-
+        $statement = $connectie->query("SELECT * FROM menu WHERE Item_id = $Item_id");
+        $menuitem = $statement->fetch();
+            
         ?>
+        <h1 class="return">Item aangepast!</h1>
+        <a href="index.php" class="return"><-Naar menu</a>
+        </main>
+    </body>

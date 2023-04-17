@@ -40,3 +40,5 @@
             <h1 class="return">Item verwijderd</h1>
             <a href="remove-change.php" class="return"><-terug</a>
             </main>
+        </body>
+        </html>

@@ -57,7 +57,7 @@ echo $currentId;
                 </div>
                 <div class="label">
                     <label for="description">Omschrijving:</label>
-                    <input type="text" name="discription" class="textfield" value="' . $current_item['Item_description'] . '">
+                    <input type="text" name="discription" class="textfield" value="'  . $current_item['Item_description'] . '">
                 </div>
                 <div class="label">
                     <label for="category">Category:</label>

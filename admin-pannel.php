@@ -17,34 +17,47 @@
         </nav>
     </header>
     <main>
-        <div class="menu-items-container">
-
-            <form action="/remove-change.php" method="post" class="login-page">
-                <div class="panel"> Admin login
-                    <div class="username">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" placeholder="username..">
-                    </div>
-                    <div class="password">
-                        <label for="password">password:</label>
-                        <input type="password" id="password" name="password" placeholder="password..">
-                    </div>
-                    <button type="submit" name="login-button" class="login-button">login</button>
-                </div>
-            </form>
-        </div>
-
         <?php
-            $dns = 'mysql:dbname=webrestaurant;host=127.0.0.1';
-            $user = 'root';
-            $password = '';
+session_start(); // Start a session to store login status
 
-            try {
-                $connectie = new PDO($dns, $user, $password);
-            }catch (PDOException $e){
-                echo "verbinding werkt niet" . $e;
-            }
-        ?>
+// Check if form has been submitted
+if(isset($_POST['submit'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // Check if username and password are correct
+  if($username == "admin" && $password == "password123") {
+    // Set session variables and redirect to admin panel
+    $_SESSION['logged_in'] = true;
+    header("Location: remove-change.php");
+    exit();
+  } else {
+    // Display error message
+    echo '                  
+                        <div class="wrong-container">
+                        <div class="wrong">Invalid username or password.</div>
+                        </div>
+                        ';
+  }
+}
+?>
+<div class="menu-items-container">
+
+<form method="post" action=""  class="login-page">
+    <div class="panel"> Admin login
+        <div class="username">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="username..">
+        </div>
+        <div class="password">
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" placeholder="password..">
+        </div>
+        <button type="submit" name="submit" class="login-button">login</button>
+    </div>
+</form>
+</div>
+
     </main>
     <footer>
 
