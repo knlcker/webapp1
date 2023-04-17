@@ -24,10 +24,10 @@
 
         $dbh = new PDO($dns, $user, $password);
 
-        $Item_title = $_POST['title'];
+        $Item_title = $_POST['new-title'];
         $Item_price = $_POST['price'];
-        $Item_description = $_POST['discription'];
-        $Item_category = $_POST['category'];
+        $Item_description = $_POST['new-discription'];
+        $Item_category = $_POST['new-category'];
 
         $statement = $dbh->prepare("INSERT INTO menu(Item_title, Item_description, Item_price, Item_category) VALUES (?, ?, ?, ?)");
         $statement->execute([$Item_title, $Item_description, $Item_price, $Item_category]);

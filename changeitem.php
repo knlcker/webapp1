@@ -39,8 +39,11 @@
             $statement->execute([$Item_title, $Item_description, $Item_price, $Item_category, $Item_id]);
         }
 
-        $statement = $connectie->query("SELECT * FROM menu WHERE Item_id = $Item_id");
+        $statement = $connectie->prepare("SELECT * FROM menu WHERE Item_id = ?");
+        $statement->execute([$Item_id]);
         $menuitem = $statement->fetch();
+
+        
             
         ?>
         <h1 class="return">Item aangepast!</h1>

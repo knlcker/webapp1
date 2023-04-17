@@ -41,6 +41,7 @@ echo $currentId;
         $resultSet->execute([$currentId]);
         $current_item = $resultSet->fetch();
 
+
        
 
     echo '
@@ -72,4 +73,4 @@ echo $currentId;
 
     ?>
 </body>
-</html>
+]
